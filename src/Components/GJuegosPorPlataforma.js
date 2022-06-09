@@ -7,9 +7,8 @@ import { Bar } from "react-chartjs-2";
 const GJuegosPorPlataforma = () => {
 
 
-     const [plataforma, setplataforma] = useState([]);
-    const [cantidad, setcantidad] = useState([]);
-
+    let plataforma;
+    let cantidad;
 
     const [PlataformaD, setPlataformaD] = useState([]);
 
@@ -61,29 +60,14 @@ const GJuegosPorPlataforma = () => {
 
 
 
-
-      const peticionAPI =() => {
-            var auxplataforma = [],
-              auxcantidad = [];
+            var auxplataforma = [], auxcantidad = [];
     
             sumarConsolas().map((sumarConsolas) => {
               auxplataforma.push(sumarConsolas.Consola);
               auxcantidad.push(sumarConsolas.Cuantity);
             });
-            setplataforma(auxplataforma);
-            setcantidad(auxcantidad);
-          
-      };
-    
-      useEffect(() => {
-        peticionAPI();
-        
-      }, []);
-
-
-
-
-
+            plataforma=auxplataforma;
+            cantidad=auxcantidad;
 
   
   
@@ -113,7 +97,7 @@ return (
 
     <div className="App" style={{width: '80%', heigth: '100px'}}>
     
-    <h2 style={{ textAlign: "center" }}>Cantidad de juegos yu por platafora</h2>
+    <h2 style={{ textAlign: "center" }}>Cantidad de juegos por plataforma</h2>
     <Bar data={data}/>
   </div>
 
