@@ -1,14 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Navbar from "./Components/Navbar";
 import ListGames from "./Components/ListGames";
 import Mejores10 from "./Components/Mejores10";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-} from "reactstrap";
+
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
@@ -17,7 +11,14 @@ import { Pie } from "react-chartjs-2";
 import Playstation4 from "./Components/Playstation4";
 import Juegosporaño from "./Components/Juegosporaño";
 import Plataforma2bd from "./Components/Plataforma2bd";
-import Listad from "./Components/Listad";
+import TJuegosPorPlataforma from "./Components/TJuegosPorPlataforma";
+import GJuegosPorPlataforma from "./Components/GJuegosPorPlataforma";
+import{
+  BrowserRouter,
+  Route,
+  Routes
+
+}from "react-router-dom";
 
 function App() {
   const [plataforma, setplataforma] = useState([]);
@@ -46,6 +47,7 @@ function App() {
     responsive: true,
   };
 
+  /*
   const peticionAPI = async () => {
     await axios
       .get("https://backend-games-mysql.herokuapp.com/getgame/platform")
@@ -66,6 +68,7 @@ function App() {
   useEffect(() => {
     peticionAPI();
   }, []);
+  */
 
   const [Fecha, setFecha] = useState([]);
   const [cantidad1, setcantidad1] = useState([]);
@@ -93,6 +96,7 @@ function App() {
     responsive: true,
   };
 
+  /*
   const peticionAPI1 = async () => {
     await axios
       .get("https://backend-games-mysql.herokuapp.com/getGame")
@@ -114,16 +118,9 @@ function App() {
     peticionAPI1();
   }, []);
 
+ */
+
   /*
-
-const [dropdown, setdropdown]=useState(false);
-
-const abrircerrardropdown=()=>{
-  setdropdown(!dropdown);
-}
-
-*/
-
   const [Games, setGames] = useState([]);
 
   useEffect(() => {
@@ -135,6 +132,7 @@ const abrircerrardropdown=()=>{
 
     getGames();
   }, []);
+  */
 
   const [PS4, setPS4] = useState([]);
 
@@ -147,6 +145,7 @@ const abrircerrardropdown=()=>{
 
     getPS4();
   }, []);
+  /*
 
   const [GAMESFORYEAR, setGAMESFORYEAR] = useState([]);
 
@@ -159,7 +158,7 @@ const abrircerrardropdown=()=>{
 
     getGAMESFORYEAR();
   }, []);
-
+*/
   ////////////////////////////////////////////////////////////////
 
   const [array1, setarray1] = useState([]);
@@ -191,6 +190,9 @@ const abrircerrardropdown=()=>{
 
   /////////////////////////////////////////////////////////////////
 
+
+/*JUEGOS POR PLATAFORMA 
+
   const [PlataformaD, setPlataformaD] = useState([]);
 
   useEffect(() => {
@@ -214,6 +216,8 @@ const abrircerrardropdown=()=>{
 
     getPlataformaD2();
   }, []);
+*/
+
 
   let [Best10Mongo, setBest10Mongo] = useState([]);
 
@@ -239,6 +243,10 @@ const abrircerrardropdown=()=>{
     getBest10MySql();
   }, []);
 
+
+
+
+  /*
   function sumarConsolas() {
     let nuevo = [];
     PlataformaD.map((item) => {
@@ -260,10 +268,13 @@ const abrircerrardropdown=()=>{
     });
     return nuevo;
   }
+*/
+
+
 
   function ordenarAsc(array1,array2,key, orden) {
     let aux = array1.concat(array2);
-    console.log(aux);
+    //console.log(aux);
     return aux.sort(function (a, b) {
       var x = a[key],
         y = b[key];
@@ -287,6 +298,20 @@ const abrircerrardropdown=()=>{
        <Bar data={data} />
     </div>
 */
+
+      <BrowserRouter>
+        
+        <Routes>
+          <Route path="/TJuegosPorPlataforma" element={<TJuegosPorPlataforma />}/>
+          <Route path="/Mejores10" element={<Mejores10 Best10={ordenarAsc(Best10Mongo, Best10MySql, "meta_score", 'desc')}/>}/>
+          <Route path="/GJuegosPorPlataforma" element={<GJuegosPorPlataforma />}/>
+         
+          
+        </Routes>
+       
+      </BrowserRouter>
+
+/*
     <Fragment>
       <Navbar brand="Juegos" />
 
@@ -308,6 +333,7 @@ const abrircerrardropdown=()=>{
         </div>
       </div>
     </Fragment>
+    */
   );
 }
 
