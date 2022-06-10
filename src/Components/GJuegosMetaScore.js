@@ -90,7 +90,7 @@ const TJuegosMetaScore= () => {
 
 return (
 
-    <div className="App" style={{width: '80%', heigth: '100px'}}>
+    <div className="App" style={{width: '100%', heigth: '100px'}}>
     
     <h2 style={{ textAlign: "center" }}>Cantidad de juegos por meta score</h2>
     <Bar data={data}/>

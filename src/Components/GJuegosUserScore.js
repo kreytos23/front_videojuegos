@@ -90,7 +90,7 @@ const GJuegosUserScore= () => {
  
 
 return (
-<div className="App" style={{width: '80%', heigth: '100px'}}>
+<div className="App" style={{width: '100%', heigth: '100px'}}>
     
     <h2 style={{ textAlign: "center" }}>Cantidad de juegos por user score</h2>
     <Bar data={data}/>
