@@ -15,6 +15,7 @@ const GJuegosPorPlataforma = () => {
     useEffect(() => {
       const getPlataformaD = () => {
         fetch("https://backend-games-mysql.herokuapp.com/mysql/count/platform")
+    	
           .then((res) => res.json())
           .then((res) => setPlataformaD(res));
       };
@@ -83,7 +84,30 @@ const GJuegosPorPlataforma = () => {
         hoverBackgroundColor: 'rgba(0,255,0,0.2)',
         hoverBorderColor:'#FF0000',
         */
-          backgroundColor: ["green"],
+        
+       
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.9)',
+            'rgba(255, 159, 64, 0.9)',
+            'rgba(255, 205, 86, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(54, 162, 235, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(201, 203, 207, 0.9)',
+            'rgba( 150, 211, 27 , 0.9)',
+            'rgba( 23, 148, 86 , 0.9)',
+            'rgba( 120, 39, 191 , 0.9)',
+            'rgba(185, 30, 171, 0.9)',
+            'rgba(223, 244, 34 , 0.9)',
+            'rgba(234, 67, 54 , 0.9)',
+            'rgba(85, 127, 140 , 0.9)',
+            'rgba( 167, 246, 144 , 0.9)',
+            'rgba(0, 254, 241  , 0.9)',
+            'rgba(0, 32, 254  , 0.9)',
+            'rgba(251, 7, 25  , 0.9)',
+            'rgba(72, 160, 10, 0.9)',
+            'rgba(74, 30, 185 , 0.9)',
+            ],
           data: cantidad
         }]
     };
@@ -95,10 +119,10 @@ const GJuegosPorPlataforma = () => {
 
 return (
 
-    <div className="App" style={{width: '80%', heigth: '100px'}}>
+    <div className="App" style={{width: '50%', heigth: '100px'}}>
     
     <h2 style={{ textAlign: "center" }}>Cantidad de juegos por plataforma</h2>
-    <Bar data={data}/>
+    <Pie data={data}/>
   </div>
 
 
