@@ -119,7 +119,7 @@ const GJuegosPorPlataforma = () => {
 
 return (
 
-    <div className="App" style={{width: '50%', heigth: '100px'}}>
+    <div className="App" style={{width: '100%', heigth: '100px'}}>
     
     <h2 style={{ textAlign: "center" }}>Cantidad de juegos por plataforma</h2>
     <Pie data={data}/>
